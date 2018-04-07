@@ -28,6 +28,7 @@ httpClient.getAllTeams().then((serverResponse) => {
 return(
     <Link key={t._id} to={`/teams/${t._id}`}>
      <img src={t.logoUrl} alt={t.name} />
+     
      </Link>
 )
 })} 
