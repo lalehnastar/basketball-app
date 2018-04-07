@@ -54,6 +54,27 @@ httpClient.logOut = function() {
 	delete this.defaults.headers.common.token
 	return true
 }
+httpClient.getAllTeams = function(){
+
+    return this({ method: 'get', url:'/api/teams' })
+}
+
+httpClient.createTeam = function(fields){
+
+    return this({ method: 'post', url:'/api/teams', data: fields })
+}
+
+httpClient.getTeam = function(id){
+    return this({ method: 'get', url:`/api/teams/${id}`})
+}
+
+httpClient.deleteTeam = function(id){
+    return this({ method: 'delete', url:`/api/teams/${id}`})
+}
+
+httpClient.updateTeam = function(id, fields){
+    return this({ method: 'patch', url:`/api/teams/${id}`, data: fields})
+}
 
 // During initial app load attempt to set a localStorage stored token
 // as a default header for all api requests.
