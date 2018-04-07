@@ -8,7 +8,8 @@ const
 	MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/react-express-jwt',
 	PORT = process.env.PORT || 3001,
 	usersRoutes = require('./routes/users.js'),
-	teamsRoutes = require('./routes/teams.js')
+	teamsRoutes = require('./routes/teams.js'),
+	playersRoutes = require('./routes/players.js')
 
 mongoose.connect(MONGODB_URI, (err) => {
 	console.log(err || `Connected to MongoDB.`)
@@ -23,8 +24,10 @@ app.get('/api', (req, res) => {
 })
 
 
-app.use('/api/teams', teamsRoutes)
+
 app.use('/api/users', usersRoutes)
+app.use('/api/teams', teamsRoutes)
+app.use('/api/players', playersRoutes)
 
 app.use('*', (req, res) => {
 	res.sendFile(`${__dirname}/client/build/index.html`)

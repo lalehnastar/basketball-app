@@ -7,6 +7,7 @@ import LogIn from './views/LogIn'
 import LogOut from './views/LogOut'
 import SignUp from './views/SignUp'
 import Team from './views/Team'
+import Player from './views/Player'
 import Home from './views/Home'
 
 class App extends React.Component {
@@ -43,9 +44,14 @@ class App extends React.Component {
 						return <SignUp {...props} onSignUpSuccess={this.onLoginSuccess.bind(this)} />
 					}} />
 
-					<Route path="/team" render={() => {
+					<Route path="/teams" render={() => {
 						return currentUser
 							? <Team />
+							: <Redirect to="/login" />
+					}} />
+					<Route path="/players" render={() => {
+						return currentUser
+							? <Player />
 							: <Redirect to="/login" />
 					}} />
 

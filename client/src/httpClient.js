@@ -76,6 +76,30 @@ httpClient.updateTeam = function(id, fields){
     return this({ method: 'patch', url:`/api/teams/${id}`, data: fields})
 }
 
+
+
+httpClient.getAllPlayers = function(){
+
+    return this({ method: 'get', url:'/api/players' })
+}
+
+httpClient.createPlayer = function(fields){
+
+    return this({ method: 'post', url:'/api/players', data: fields })
+}
+
+httpClient.getPlayer = function(id){
+    return this({ method: 'get', url:`/api/players/${id}`})
+}
+
+httpClient.deletePlayer = function(id){
+    return this({ method: 'delete', url:`/api/players/${id}`})
+}
+
+httpClient.updatePlayer = function(id, fields){
+    return this({ method: 'patch', url:`/api/players/${id}`, data: fields})
+}
+
 // During initial app load attempt to set a localStorage stored token
 // as a default header for all api requests.
 httpClient.defaults.headers.common.token = httpClient.getToken()
