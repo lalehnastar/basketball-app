@@ -6,8 +6,9 @@ import NavBar from './NavBar'
 import LogIn from './views/LogIn'
 import LogOut from './views/LogOut'
 import SignUp from './views/SignUp'
-import Team from './views/Team'
-import Player from './views/Player'
+import Teams from './views/Teams'
+import TeamDetails from './views/TeamDetails'
+import Players from './views/Players'
 import Home from './views/Home'
 
 class App extends React.Component {
@@ -44,14 +45,21 @@ class App extends React.Component {
 						return <SignUp {...props} onSignUpSuccess={this.onLoginSuccess.bind(this)} />
 					}} />
 
+
+
+					<Route path="/teams/:id" component={TeamDetails} />
+
 					<Route path="/teams" render={() => {
 						return currentUser
-							? <Team />
+							? <Teams />
 							: <Redirect to="/login" />
 					}} />
+					
+
+
 					<Route path="/players" render={() => {
 						return currentUser
-							? <Player />
+							? <Players />
 							: <Redirect to="/login" />
 					}} />
 

@@ -32,7 +32,7 @@ module.exports = {
 	update: (req, res) => {
 		Team.findById(req.params.id, (err, team) => {
 			Object.assign(team, req.body)
-			Team.save((err, updatedTeam) => {
+			team.save((err, updatedTeam) => {
 				res.json({success: true, message: "Team updated.", team})
 			})
 		})
@@ -44,7 +44,5 @@ module.exports = {
 			res.json({success: true, message: "Team deleted.", team})
 		})
 	}
-
-
 
 }
