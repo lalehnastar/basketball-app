@@ -5,7 +5,7 @@ const
 	logger = require('morgan'),
 	bodyParser = require('body-parser'),
 	mongoose = require('mongoose'),
-	MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/react-express-jwt',
+	MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/basketball-app',
 	PORT = process.env.PORT || 3001,
 	usersRoutes = require('./routes/users.js'),
 	teamsRoutes = require('./routes/teams.js'),

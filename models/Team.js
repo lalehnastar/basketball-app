@@ -4,7 +4,7 @@ const
         name: { type: String, required: true, unique: true },
 	    logoUrl: { type: String },
 		players:[ 
-            { type: mongoose.Schema.Types.ObjectId, ref:"Player", unique: true }
+            { type: mongoose.Schema.Types.ObjectId, ref:"Player" }
         ]
     })
     const Team = mongoose.model('Team', teamSchema)

@@ -22,9 +22,8 @@ module.exports = {
 	create: (req, res) => {
 		Team.create(req.body, (err, team) => {
 			if(err) return res.json({success: false, code: err.code})
-			// once Team is created, generate a token to "log in":
-			const token = signToken(team)
-			res.json({success: true, message: "Team created. Token attached.", token})
+			
+			res.json({success: true, message: "Team created", team})
 		})
 	},
 
