@@ -1,5 +1,6 @@
 import React from 'react'
 import httpClient from '../httpClient'
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 // sign up form behaves almost identically to log in form. We could create a flexible Form component to use for both actions, but for now we'll separate the two:
 class SignUp extends React.Component {
@@ -25,24 +26,37 @@ class SignUp extends React.Component {
 				this.props.history.push('/')
 			}
 		})
+	} 
+
+	onButtonClick(evt) {
+		evt.preventDefault()
+		httpClient.signUp(this.state.fields).then(user => {
+			this.setState({ fields: { name: '', email: '', password: '' } })
+			if (user) {
+				this.props.onSignupSuccess(user)
+				this.props.history.push('/')
+			}
+		})
 	}
 	
 	render() {
 		const { name, email, password } = this.state.fields
 		return (
-			<div className='SignUp'>
-				<div className='row'>
-					<div className='column column-33 column-offset-33'>
-						<h1>Sign Up</h1>
-						<form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
-							<input type="text" placeholder="Name" name="name" value={name} />
-							<input type="text" placeholder="Email" name="email" value={email} />
-							<input type="password" placeholder="Password" name="password" value={password} />
-							<button>Sign Up</button>
-						</form>
-					</div>
-				</div>
-			</div>
+			<Form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
+			<FormGroup>
+				<Label for="email">Name</Label>
+				<Input type="name" name="name" id="name" placeholder="Enter an Name" onChange={this.onInputChange.bind(this)} />
+			</FormGroup>
+			<FormGroup>
+				<Label for="email">Email</Label>
+				<Input type="email" name="email" id="email" placeholder="Enter an Email" onChange={this.onInputChange.bind(this)} />
+			</FormGroup>
+			<FormGroup>
+				<Label for="password">Password</Label>
+				<Input type="password" name="password" id="password" placeholder="Enter a password" onChange={this.onInputChange.bind(this)} />
+			</FormGroup>
+			<Button>Submit</Button>
+		</Form>
 		)
 	}
 }
