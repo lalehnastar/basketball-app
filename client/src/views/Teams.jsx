@@ -67,7 +67,6 @@ class Teams extends React.Component {
                     return (
                         <Link key={t._id} to={`/teams/${t._id}`}>
                             <li> {t.name}</li>
-
                         </Link>
                     )
                 })}

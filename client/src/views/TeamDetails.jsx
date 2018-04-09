@@ -6,14 +6,25 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { Form, FormGroup, Label, Input } from 'reactstrap';
 
 class TeamDetails extends React.Component {
-    state = {
-        modalOpen: false,
-        team: {
-            _id: "",
-            name: "",
+    constructor(props) {
+        super(props);
+        this.state = {
+            modalOpen: false,
+            team: {
+                _id: "",
+                name: "",
+                players: []
+            },
             players: []
-        },
-        players: []
+        }
+
+        this.toggle = this.toggle.bind(this);
+    }
+    
+    toggle() {
+        this.setState({
+            modalOpen: !this.state.modalOpen
+        });
     }
 
     handleEditClick() {
@@ -74,10 +85,11 @@ class TeamDetails extends React.Component {
         const { team, players, modalOpen } = this.state
         return (
             <div className="Teams">
-                <Button onClick={this.handleEditClick.bind(this)} color="primary">Edit Team</Button>
-                <Button onClick={this.handleDeleteClick.bind(this)} color="primary">Delete Team</Button>
+                <Button onClick={this.handleEditClick.bind(this)} color="primary" size="sm">Edit Team</Button>
+                <Button onClick={this.handleDeleteClick.bind(this)} color="danger" size="sm">Delete Team</Button>
                 <h1>{team.name}</h1>
-                {players.map((p) => {
+                {
+                    players.map((p) => {
                     return 
                 })}
 
@@ -89,16 +101,14 @@ class TeamDetails extends React.Component {
                                 <Label for="name">Name</Label>
                                 <Input defaultValue={team.name}  ref="name" innerRef="name" type="text" id="name" />
                             </FormGroup>
-                          
                             <FormGroup>
-                                <Label for="players">Players</Label>
-                                <Input defaultValue={team.players}  ref="players" innerRef="players" type="text" id="players" />
+                                <Label for="logoUrl">Logo</Label>
+                                <Input defaultValue={team.logoUrl}  ref="logoUrl" innerRef="logoUrl" type="text" id="logoUrl" />
                             </FormGroup>
-
-
                         </ModalBody>
                         <ModalFooter>
-                            <Button type="submit" color="info">Update</Button>
+                            <Button type="submit" color="primary">Update</Button>
+                            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
                         </ModalFooter>
                     </Form>
                 </Modal>
