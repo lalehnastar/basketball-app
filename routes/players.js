@@ -8,7 +8,7 @@ playersRouter.route('/')
 	.get(playersCtrl.index)
 	.post(playersCtrl.create)
 
-playersRouter.use(verifyToken)
+//playersRouter.use(verifyToken)
 playersRouter.route('/:id')
 	.get(playersCtrl.show)
 	.patch(playersCtrl.update)
