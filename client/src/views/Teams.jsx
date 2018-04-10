@@ -3,6 +3,7 @@ import httpClient from '../httpClient.js'
 import { Link } from 'react-router-dom'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { Form, FormGroup, Label, Input } from 'reactstrap';
+import { ListGroup, ListGroupItem } from 'reactstrap';
 
 class Teams extends React.Component {
     constructor(props) {
@@ -14,8 +15,6 @@ class Teams extends React.Component {
 
         this.toggle = this.toggle.bind(this);
     }
-
-
 
     handleNewClick() {
         this.setState({
@@ -62,15 +61,20 @@ class Teams extends React.Component {
             <div className="Teams">
                 <Button onClick={this.handleNewClick.bind(this)} color="primary">Create New Team</Button>
                 <h2>Number of Teams: {teams.length}</h2>
-                {
-                    teams.map((t) => {
-                    return (
-                        <Link key={t._id} to={`/teams/${t._id}`}>
-                            <li> {t.name}</li>
-                        </Link>
-                    )
-                })}
+                <ListGroup>
+                    {
 
+                        teams.map((t) => {
+                            return (
+                                <ListGroupItem>
+                                    <Link key={t._id} to={`/teams/${t._id}`}>
+                                        {t.name}
+                                    </Link>
+                                </ListGroupItem>
+                            )
+
+                        })}
+                </ListGroup>
                 <Modal isOpen={modalOpen}>
                     <ModalHeader>Create New Team</ModalHeader>
                     <Form onSubmit={this.handleNewFormSubmit.bind(this)}>
