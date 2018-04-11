@@ -177,15 +177,6 @@ class TeamDetails extends React.Component {
                         </ModalFooter>
                     </Form>
                 </Modal>
-            {/* delete-confirmation  */}
-        {/*         <div class="modal-body">
-          Are you sure?
-        </div> 
-
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-          <button type="submit" class="btn btn-primary confirmDeletePostBtn">Delete</button>
-        </div> */}
             </div>
         )
     }
