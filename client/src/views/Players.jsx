@@ -1,11 +1,10 @@
 import React from 'react'
 import httpClient from '../httpClient.js'
-import { Link } from 'react-router-dom'
+
 import Player from './Player'
 import _ from 'lodash'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { Form, FormGroup, Label, Input } from 'reactstrap';
-import { ListGroup, ListGroupItem } from 'reactstrap';
 import { Container, Row, Col } from 'reactstrap';
 
 class Players extends React.Component {

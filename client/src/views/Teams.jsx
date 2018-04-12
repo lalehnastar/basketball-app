@@ -66,7 +66,7 @@ class Teams extends React.Component {
 
                         teams.map((t) => {
                             return (
-                                <ListGroupItem>
+                                <ListGroupItem key={t._id}>
                                     <Link key={t._id} to={`/teams/${t._id}`}>
                                         {t.name}
                                     </Link>

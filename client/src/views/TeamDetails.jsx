@@ -1,6 +1,6 @@
 import React from 'react'
 import httpClient from '../httpClient.js'
-import { Link } from 'react-router-dom'
+
 import Player from './Player'
 import _ from 'lodash'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
@@ -61,7 +61,7 @@ class TeamDetails extends React.Component {
     handleEditFormSubmit(evt) {
         evt.preventDefault()
         
-        const { name, logoUrl, players } = this.refs
+        const { name, logoUrl } = this.refs
         const teamFormFields = {
 
             name: name.refs.name.value,
@@ -84,7 +84,7 @@ class TeamDetails extends React.Component {
                 player_ids.map((p) => {
                     httpClient.getPlayer(p).then((serverPlayerResponse) => {
                         this.setState({
-                            players_details : [...this.state.players_details, serverPlayerResponse.data]
+                           players_details : [...this.state.players_details, serverPlayerResponse.data]
                         })
                     });
 
@@ -129,7 +129,7 @@ class TeamDetails extends React.Component {
                 
                 <Button onClick={this.handleDeleteClick.bind(this)} color="danger" size="sm">Delete Team</Button>
      
-                <img src={team.logoUrl} />
+                <img src={team.logoUrl} alt="" />
                 <h1>{team.name}</h1>
                 <Container>
                     {playerRows.map((row, index) => {

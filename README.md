@@ -1,78 +1,152 @@
-# React Application with JWT Authentication
+## Project #4
 
-### Overview
+#    Laleh's Basketball Application 
 
-This is an example application that serves an ExpressJS JSON api to a React client application. The React application is configured for a basic JWT authentication flow **WITHOUT** using redux. Great for those of you that are somewhat familiar with Node, Express, and Mongoose, but want to see an implementation of React + React Router with JWT authentication.
+![alt text](images/screenshot.png)  
+  
+ 
 
-The React client app could easily be restructured to keep current user information in a Redux Store. Give it a shot!
-
-### Installation + Development
-
-1. `git clone` this repository to your local machine.
-
-2. run `npm install` from the cloned repo directory.
-
-3. create a `.env` file at the root of the application, adjacent to `server.js`.
-
-   *The only environment variable you **have** to declare in development is `JWT_SECRET`*
-
-   In the `.env` file, you can declare the following environment variables: `JWT_SECRET`, `MONGODB_URI`, and `PORT`. For example:
-
-   ```
-   JWT_SECRET=BOOOOOOOOOOOOOM
-   MONGODB_URI=mongodb://localhost/react-express-jwt
-   PORT=3001
-   ```
+   
+            
+           
+         
 
 
 
-4. It's recommended that you run the api server on port 3001 while developing locally, as the client app will default to port 3000.
-5. Make sure `mongod` is running by running… ahem… `mongod`
-6. From that point you can run the api server either by using `nodemon` or just running `node server.js`
-7. Now for the client application. `cd client`
-8. Install the client app's dependencies with `npm install`
-9. From the client directory, run `npm start` to boot up the client application.
-10. $$$ Profit
+  
 
-### Usage
 
-It's common to identify the user making an authenticated request on the server side. In this application, the `verifyToken` middleware (declared in `/serverAuth.js`) decodes a provided token, and makes sure the request is coming from a valid user. When the user is validated, it is added to the `req` object as `req.user`. 
+    
+ App logic:
+---  
+An app that provides users to sign up and get information about teams, team details and players.
+Each user can add a new team to the list, can edit or delete a team. The user can also click on each team to see the logo, name and number of the players in each team. Clicking on players option in the navbar gives users the details of each player such as fullname, height and weight. Users can use the log in option if they are already a member.  
+ 
+### Players 
+ 
+![alt text](images/players.png)   
+### Teams 
 
-Here's an example of how you can access the 'current user' from the server side app, assuming a user is logged in and sending an authenticated request:
-
-```javascript
-const express = require('express')
-const mySpecialRouter = new express.Router()
-
-// JWT AUTH MIDDLEWARE:
-const { verifyToken }  = require('../serverAuth.js')
-
-const Comment = require('../models/Comment.js')
-
-// all routes declared after this middleware require a token
-mySpecialRouter.use(verifyToken)
-mySpecialRouter.post("/comments", (req, res) => {
-  // since this route succeeds 'verifyToken', it has the current user in req.user
-  // so we can easily associate new mongo documents to the current user:
-  Comment.create({ ...req.body, user: req.user }, (err, comment) => {
-    if(err) return console.log(err)
-    res.json({ success: true, message: "Comment created.", comment })
-  })
-})
-
-module.exports = mySpecialRouter
-```
+![alt text](images/teams.png) 
+### TeamDetail 
+  
+![alt text](images/teamdetail.png)  
 
 
 
-### Technologies
+  
+ 
+Wireframe Diagram:
+---
+![alt text](images/wireframe.png)               
+ 
 
-- NodeJS + Express + Mongoose on the back
-- React client application on the front
-- React Router 4.*
-- Milligram CSS so it doesn't look like garbage
-- JSON Web Token authentication flow
+ERD Diagram:  
+---
 
-### Important Notes
+![alt text](images/ERD.png)  
+  
+Installation instructions:  
+--- 
+### Create
+* Fork and clone the existing app in Github
+* Add the .env file to the code
 
-- While the Mongoose user schema enforces email uniqueness, there's no handler for duplicate user emails on the client side. (A user wouldn't know why they couldn't create their account if they came across this scenario).
+### serverside
+* Open Mongod in terminal 
+* Open nodemon in terminal   
+
+
+
+
+### Client 
+* Cd into client directory 
+* Run npm install
+* Add the packages that are needed npm install (name of the package) -- save
+* Finally npm Start   
+
+
+
+
+Online deployment (Heroku)
+
+
+
+
+
+
+
+
+
+
+Tools:
+---  
+* HTML
+* CSS/SCSS
+* Javascript
+* Chrome Developer Console
+* Visual Studio
+* MacDown  
+* Trello Board
+* Fluidui for Wireframe
+* Gliffy for ERD
+* Pitch deck
+
+
+Packages:
+---
+* express
+* dotenv
+* bcrypt-nodejs
+* morgan
+* mongoose 
+* axios
+* jwt-decode
+* body-parser
+* milligram
+* react
+* react-dom
+* react-router-dom
+* reactstrap
+* bootstrap
+
+
+
+
+Resources:
+---  
+* [MDN Javascript Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript) 
+* [Hack Design](https://hackdesign.org/lessons) 
+
+Approach:
+---
+* Think about the functionality of the app  
+* Start writing the steps need to be done in Trello Board
+* Start with Wireframe of the app
+* Start to create the models and connection between them
+* ERD-Diagram
+* Starting with code
+* Complete the code
+* Design the code
+* Pitch deck
+* Future steps that can be done in order to make the app more usable
+* Readme
+
+  
+
+Future Enhancements:
+---
+
+  
+1. Add more models to the app
+3. Add more Components to the app such as coach and scores
+1. Change the style of the app
+
+Acknowledgements
+---
+#### Links 
+
+* [Heroku]()  
+* [Github](https://github.com/lalehnastar/basketball-app)  
+* [Trello](https://trello.com/b/f4mXjfsf/project4-basketball-app)
+* [Pitch deck](https://app.slidebean.com/editor/1PjFbP6ANN#outline2)

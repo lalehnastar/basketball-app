@@ -1,6 +1,6 @@
 import React from 'react'
 import httpClient from '../httpClient'
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 // sign up form behaves almost identically to log in form. We could create a flexible Form component to use for both actions, but for now we'll separate the two:
 class SignUp extends React.Component {
@@ -45,15 +45,15 @@ class SignUp extends React.Component {
 			<Form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
 			<FormGroup>
 				<Label for="email">Name</Label>
-				<Input type="name" name="name" id="name" placeholder="Enter an Name" onChange={this.onInputChange.bind(this)} />
+				<Input type="name" name="name" value={name} id="name" placeholder="Enter an Name" onChange={this.onInputChange.bind(this)} />
 			</FormGroup>
 			<FormGroup>
 				<Label for="email">Email</Label>
-				<Input type="email" name="email" id="email" placeholder="Enter an Email" onChange={this.onInputChange.bind(this)} />
+				<Input type="email" name="email" value={email} id="email" placeholder="Enter an Email" onChange={this.onInputChange.bind(this)} />
 			</FormGroup>
 			<FormGroup>
 				<Label for="password">Password</Label>
-				<Input type="password" name="password" id="password" placeholder="Enter a password" onChange={this.onInputChange.bind(this)} />
+				<Input type="password" name="password" value={password} id="password" placeholder="Enter a password" onChange={this.onInputChange.bind(this)} />
 			</FormGroup>
 			<Button>Submit</Button>
 		</Form>

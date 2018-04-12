@@ -11,6 +11,7 @@ import TeamDetails from './views/TeamDetails'
 import Players from './views/Players'
 import Home from './views/Home'
 
+
 class App extends React.Component {
 	state = { currentUser: httpClient.getCurrentUser() }
 
@@ -28,8 +29,8 @@ class App extends React.Component {
 		return (
 			<div className='App container'>
 
-				<NavBar currentUser={currentUser} />
-
+			<NavBar currentUser={currentUser} />
+		<div id="main">
 				<Switch>
 
 					<Route path="/login" render={(props) => {
@@ -65,9 +66,16 @@ class App extends React.Component {
 
 					<Route path="/" component={Home} />
 
+				
+				
 				</Switch>
+				</div>
+		
+
 			</div>
 		)
+		
+		
 	}
 }
 

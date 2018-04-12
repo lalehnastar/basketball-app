@@ -1,13 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+
 import { Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button } from 'reactstrap';
+  CardTitle } from 'reactstrap';
 
 export default class Player extends React.Component {
 
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     const FullName = this.props.firstName + " " + this.props.lastName;

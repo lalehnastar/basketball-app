@@ -28,7 +28,7 @@ const items = [
     src:'https://s.yimg.com/ny/api/res/1.2/nSnrx0hoj7j5WxUtqDjQFQ--/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9ODAw/http://media.zenfs.com/en-US/homerun/csnchicago.com/a09c1f7c84024d5042efbb4dfc5884ed'
   },
   {
-    src:'https://pontofinalmacau.files.wordpress.com/2016/01/3-kobe-bryant.jpg?w=723'
+    src:'https://typeset-beta.imgix.net/elite-daily/2015/02/05171546/RosePass.jpg'
   }
 
 ];

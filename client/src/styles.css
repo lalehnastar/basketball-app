@@ -1,18 +1,14 @@
-.NavBar a, .NavBar button {
-	margin: 0 5px;
-	cursor: pointer;
-}
+
+
 
 .NavBar {
 	margin-bottom: 20px
 }
 body{
 
-	background-color: yellowgreen;
+	background-color: white;
 }
 .Home{
 	text-align: center;
 	color:black;
 }
-
-
