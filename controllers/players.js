@@ -20,22 +20,22 @@ module.exports = {
 
 	// create a new Team
 	create: (req, res) => {
-		Player.create(req.body, (err, player) => {
+		Player.create({...req.body, user: req.user}, (err, player) => {
 			console.log(err)
 			if(err) return res.json({success: false, code: err.code})
 			// once Team is created, generate a token to "log in":
-			const token = signToken(player)
-			res.json({success: true, message: "Player created. Token attached.", token})
+			
+			res.json({success: true, message: "Player created. Token attached.", player: player})
 		})
 	},
 
 	// update an existing Team
 	update: (req, res) => {
-		Player.findById(req.params.id, (err, player) => {
-			Object.assign(player, req.body)
-			player.save((err, updatedPlayer) => {
+		Player.findByIdAndUpdate(req.params.id,req.body, {new:true}, (err, player) => {
+			
+			
 				res.json({success: true, message: "Player updated.", player})
-			})
+	
 		})
 	},
 
