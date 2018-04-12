@@ -108,7 +108,7 @@ Packages:
 * react-dom
 * react-router-dom
 * reactstrap
-* bootstrap
+
 
 
 
@@ -146,7 +146,7 @@ Acknowledgements
 ---
 #### Links 
 
-* [Heroku]()  
+* [Heroku](https://damp-atoll-41261.herokuapp.com/)  
 * [Github](https://github.com/lalehnastar/basketball-app)  
 * [Trello](https://trello.com/b/f4mXjfsf/project4-basketball-app)
 * [Pitch deck](https://app.slidebean.com/editor/1PjFbP6ANN#outline2)
