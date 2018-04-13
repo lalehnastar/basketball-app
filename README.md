@@ -103,7 +103,6 @@ Packages:
 * axios
 * jwt-decode
 * body-parser
-* milligram
 * react
 * react-dom
 * react-router-dom
